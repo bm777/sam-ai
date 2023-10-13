@@ -19,14 +19,13 @@ export default function Home() {
 
     // add user question to the list of messages
     e.preventDefault();
-    const _messages1 = messages;
-    _messages1.push({"role": "user", "message": query});
-    setMessages(_messages1);
+    let _messages = messages;
+    _messages.push({"role": "user", "message": query});
+    setMessages(_messages);
 
     // add sam answer to the list of messages
-    const _messages2 = messages;
-    _messages2.push({"role": "sam", "message": "Certainly! The most affordable iPhone 14 with at least 128GB of RAM and in gray color is the iPhone 14 Mini Gray Edition, priced at $699. It boasts a 5.4-inch Super Retina XDR display and is powered by the A16 Bionic chip, providing a blend of performance, style, and budget-friendliness."});
-    setMessages(_messages2);
+    _messages.push({"role": "sam", "message": "Certainly! The most affordable iPhone 14 with at least 128GB of RAM and in gray color is the iPhone 14 Mini Gray Edition, priced at $699. It boasts a 5.4-inch Super Retina XDR display and is powered by the A16 Bionic chip, providing a blend of performance, style, and budget-friendliness."});
+    setMessages(_messages);
     // to update the UI component
     setCounter(counter + 1)
   }
