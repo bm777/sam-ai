@@ -1,7 +1,4 @@
-import Image from "next/image"
-
 export default function Button(props) {
-
     return (
         <div className=" border w-full border-[#94949418] bg-[#94949410] p-1 flex items-center rounded-md gap-[6px] hover:cursor-pointer animate-pulse">
             <div className=" flex w-[100%] py-1 items-center">

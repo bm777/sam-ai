@@ -1,12 +1,12 @@
+import Button from "./button";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import Button from "./button";
 
 export default function SamCard(props) {
-    const {answer, img} = props;
     let illusion = false
-    const [completedTyping, setCompletedTyping] = useState(!illusion) // RUNNING ONLY ONE TIME
+    const {answer, img} = props;
     const [displayAnswer, setDisplayAnswer] = useState("")
+    const [completedTyping, setCompletedTyping] = useState(!illusion) // RUNNING ONLY ONE TIME
     useEffect(() => {
 
       if(!completedTyping) { setDisplayAnswer(answer); return }
@@ -23,10 +23,7 @@ export default function SamCard(props) {
           }, 20);
           return () => clearInterval(intervalId)
       }
-
       setTimeout(() =>  wait(), 1200)
-      
-
   }, [answer])
     return (
         <div className="w-full rounded-md flex flex-col mt-2">
@@ -44,7 +41,6 @@ export default function SamCard(props) {
               < Button/>
             </div>
           }
-          
         </div>
     )
 }

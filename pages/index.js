@@ -1,44 +1,36 @@
 
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import UserCard from "../cards/user";
 import SamCard from "../cards/sam";
+import UserCard from "../cards/user";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [startChat, setStartChat] = useState(false);
-  const [sources, setSources] = useState([
-    "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6525/6525478_sd.jpg;maxHeight=2000;maxWidth=2000",
-    "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6525/6525478cv12d.jpg;maxHeight=2000;maxWidth=2000",
-    "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6525/6525478cv15d.jpg;maxHeight=2000;maxWidth=2000"
-  ]);
-  const [messages, setMessages] = useState([])
   const [query, setQuery] = useState("")
   const [counter, setCounter] = useState(0)
+  const [messages, setMessages] = useState([])
+  const [startChat, setStartChat] = useState(false);
+  const [sources, setSources] = useState([
+    "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6525/6525478_sd.jpg;maxHeight=2000;maxWidth=2000"
+  ]);
   
-  useEffect(() => {
-
-
-  }, [])
-  
-  const handlePopup = () => {
-    setStartChat(!startChat);
-  }
+  const handlePopup = () => { setStartChat(!startChat); }
   const handleSearch = (e) => {
+
     // add user question to the list of messages
     e.preventDefault();
     const _messages1 = messages;
     _messages1.push({"role": "user", "message": query});
     setMessages(_messages1);
+
     // add sam answer to the list of messages
     const _messages2 = messages;
     _messages2.push({"role": "sam", "message": "Certainly! The most affordable iPhone 14 with at least 128GB of RAM and in gray color is the iPhone 14 Mini Gray Edition, priced at $699. It boasts a 5.4-inch Super Retina XDR display and is powered by the A16 Bionic chip, providing a blend of performance, style, and budget-friendliness."});
     setMessages(_messages2);
+    // to update the UI component
     setCounter(counter + 1)
   }
-  const handleQuery = (e) => {
-    setQuery(e.target.value);
-  }
+  const handleQuery = (e) => { setQuery(e.target.value); }
   return (
    <div className="w-full h-screen flex relative">
     <Head>
@@ -52,8 +44,6 @@ export default function Home() {
     <div className={"h-[900px] w-full absolute duration-500 transform "+ (startChat ? "bg-[#000000a4]": "")}>
     </div>
     {/* ---------------  -------------------  ----------------- */}
-
-
     
     {
       startChat ?
@@ -75,7 +65,6 @@ export default function Home() {
           </div>
         </div>
         
-        
         <div className="w-full flex-1 relative overflow-auto">
           {/* middle part*/}
           {
@@ -87,11 +76,6 @@ export default function Home() {
               }
             })
           }
-          {/* <UserCard  query={"Hey what is the cheapest iphone 14 with at least 128go of ram and gray color?"}/>
-
-          <SamCard  answer={"Certainly! The most affordable iPhone 14 with at least 128GB of RAM and in gray color is the iPhone 14 Mini Gray Edition, priced at $699. It boasts a 5.4-inch Super Retina XDR display and is powered by the A16 Bionic chip, providing a blend of performance, style, and budget-friendliness."}
-                  img={sources[0]}    
-                  /> */}
 
           <div className="h-[90px]"></div>
 
@@ -121,17 +105,8 @@ export default function Home() {
           <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#fff" viewBox="0 0 256 256">
             <path d="M216,48H40A16,16,0,0,0,24,64V224a15.84,15.84,0,0,0,9.25,14.5A16.05,16.05,0,0,0,40,240a15.89,15.89,0,0,0,10.25-3.78.69.69,0,0,0,.13-.11L82.5,208H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48ZM160,152H96a8,8,0,1,1,0-16h64a8,8,0,1,1,0,16Zm0-32H96a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Z"></path>
           </svg>
-
       </div>
-
     }
-
-
-    {/* <div className={""}>
-      <div className="h-screen w-full ">
-        
-      </div>
-    </div> */}
    </div>
   )
 }
