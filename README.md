@@ -7,6 +7,7 @@ First, run the development server:
 ```bash
 git clone https://github.com/bm777/sam-ai.git
 cd sam-ai
+npm install
 npm run dev
 ```
 
