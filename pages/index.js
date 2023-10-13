@@ -1,3 +1,8 @@
+/**
+ * Filename: index.js
+ * Author: Bayang
+ * Description: Main application file
+ */
 
 import Head from "next/head";
 import Image from "next/image";
@@ -15,6 +20,10 @@ export default function Home() {
   ]);
   
   const handlePopup = () => { setStartChat(!startChat); }
+  /**
+   * Handle Search function.
+   * @param {event}  - event object.
+   */
   const handleSearch = (e) => {
 
     // add user question to the list of messages
